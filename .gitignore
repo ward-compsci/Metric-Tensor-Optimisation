@@ -1,0 +1,22 @@
+# Ignore virtual environment directory
+metricTensorOptimisationEnv/
+
+# Ignore test folder
+test/
+
+# Ignore all Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore data files
+data/*
+!data/.gitkeep
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore log files
+*pysnirf2.log
+
+# Ignore output files
+output/
