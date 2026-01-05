@@ -12,11 +12,17 @@ __pycache__/
 data/*
 !data/.gitkeep
 
+# Ignore additional visualisations folder
+visualisations/
+
 # Ignore VSCode settings
 .vscode/
 
 # Ignore log files
 *pysnirf2.log
+
+# Ignore .venv folder
+.venv/
 
 # Ignore output files
 output/
