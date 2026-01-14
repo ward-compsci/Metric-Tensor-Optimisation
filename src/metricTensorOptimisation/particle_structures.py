@@ -104,7 +104,21 @@ class ParticleSwarmInitial(ParticleSwarm):
             params = np.random.uniform(param_bounds[0,:], param_bounds[1,:], param_bounds.shape[1])
             particles.append([node_id] + list(params))
 
-        particles = [[158, 0.5, 0.01]]
-
         self.create_particles_from_list(particles)
     
+class ParticleWithHistory(Particle):
+    """Particle that tracks its personal best position and error."""
+    def __init__(self, node_id, params, graph_instance):
+        super().__init__(node_id, params, graph_instance)
+        self.personal_best_node = node_id
+        self.personal_best_params = params.copy()
+        self.personal_best_error = np.inf
+    
+    def update_personal_best(self, current_error):
+        """Update personal best if current position is better."""
+        if current_error < self.personal_best_error:
+            self.personal_best_error = current_error
+            self.personal_best_node = self.node_id
+            self.personal_best_params = self.params.copy()
+            return True
+        return False

@@ -805,5 +805,7 @@ class PlottingFunctions:
         self._configure_axis(ax,"Error","Steps")
         self._set_small_fig(fig,ax)
 
+        ax.set_ylim(5.5,9.0)
+
         plt.savefig("convergence.pdf")
         plt.show()
